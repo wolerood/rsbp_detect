@@ -32,7 +32,7 @@ while True:
     # Convert RGBA → RGB
     frame = cv2.cvtColor(frame, cv2.COLOR_RGBA2RGB)
 
-    results = ncnn_model(frame, imgsz=320, verbose=False)
+    results = ncnn_model(frame, imgsz=640, verbose=False)
 
     # FPS count
     frame_count += 1
