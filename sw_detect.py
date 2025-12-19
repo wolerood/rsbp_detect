@@ -26,7 +26,7 @@ while True:
     # Convert RGBA → RGB
     frame = cv2.cvtColor(frame, cv2.COLOR_RGBA2RGB)
 
-    results = model(frame, imgsz=288, verbose=False)
+    results = model(frame, imgsz=320, verbose=False)
 
     #annotated_frame = results[0].plot()
 
@@ -34,6 +34,9 @@ while True:
     frame_count += 1
     elapsed_time = time.time() - start_time
     fps = frame_count / elapsed_time if elapsed_time > 0 else 0
+
+    # Detect object count
+    detect_num = (len(results[0].boxes))
 
     # cv2.putText(annotated_frame, f"FPS: {fps:.2f}",
     #             (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
@@ -44,7 +47,7 @@ while True:
     # # Show annotated frame
     # cv2.imshow("Sweetie Detection", rgb_frame)
 
-    print(f'FPS: {"%.1f" % fps}')
+    print(f'FPS: {"%.1f" % fps}, Обнаружено объектов: {detect_num}')
 
     if cv2.waitKey(1) & 0xFF == 27:  # ESC
         break
