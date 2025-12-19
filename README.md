@@ -36,7 +36,7 @@ raspberrypi_detection/
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/wolerood/rsbp_detect.git
-cd rspb_detect
+cd rsbp_detect
 ```
 
 ### 2. Create & activate virtual environment
@@ -44,8 +44,8 @@ cd rspb_detect
 sudo apt update
 sudo apt full-upgrade
 sudo apt install -y python3-picamera2
-python3 -m venv venv_detection --system-site-packages 
-source venv_detection/bin/activate
+python3 -m venv venv_rsbp_detect --system-site-packages 
+source venv_rsbp_detect/bin/activate
 ```
 
 ### 3. Install dependencies
