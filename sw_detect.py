@@ -42,8 +42,8 @@ while True:
 
     if video_play:
         annotated_frame = results[0].plot()
-        
-        cv2.putText(annotated_frame, f"FPS: {fps:.2f}",
+
+        cv2.putText(annotated_frame, f"FPS: {fps:.2f} Обнаружено: {detect_num}",
                     (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
                     0.7, (0, 255, 255), 2)
         
