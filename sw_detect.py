@@ -4,6 +4,8 @@ from ultralytics import YOLO
 from picamera2 import Picamera2
 from libcamera import Transform
 
+# Вывод видео
+video_play = True
 
 # Start PiCamera stream
 picam2 = Picamera2()
@@ -38,14 +40,15 @@ while True:
     # Detect object count
     detect_num = (len(results[0].boxes))
 
-    # cv2.putText(annotated_frame, f"FPS: {fps:.2f}",
-    #             (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
-    #             0.7, (0, 255, 255), 2)
-    
-    # rgb_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
+    if video_play:
+        cv2.putText(annotated_frame, f"FPS: {fps:.2f}",
+                    (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
+                    0.7, (0, 255, 255), 2)
+        
+        rgb_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
 
-    # # Show annotated frame
-    # cv2.imshow("Sweetie Detection", rgb_frame)
+        # Show annotated frame
+        cv2.imshow("Sweetie Detection", rgb_frame)
 
     print(f'FPS: {"%.1f" % fps}, Обнаружено объектов: {detect_num}')
 
