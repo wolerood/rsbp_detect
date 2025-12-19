@@ -44,7 +44,7 @@ while True:
     # # Show annotated frame
     # cv2.imshow("Sweetie Detection", rgb_frame)
 
-    print(f'FPS: {fps}')
+    print(f'FPS: {"%.1f" % fps}')
 
     if cv2.waitKey(1) & 0xFF == 27:  # ESC
         break
