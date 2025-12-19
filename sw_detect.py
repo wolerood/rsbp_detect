@@ -28,21 +28,23 @@ while True:
 
     results = model(frame, imgsz=288, verbose=False)
 
-    annotated_frame = results[0].plot()
+    #annotated_frame = results[0].plot()
 
     # FPS count
     frame_count += 1
     elapsed_time = time.time() - start_time
     fps = frame_count / elapsed_time if elapsed_time > 0 else 0
 
-    cv2.putText(annotated_frame, f"FPS: {fps:.2f}",
-                (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
-                0.7, (0, 255, 255), 2)
+    # cv2.putText(annotated_frame, f"FPS: {fps:.2f}",
+    #             (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
+    #             0.7, (0, 255, 255), 2)
     
-    rgb_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
+    # rgb_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
 
-    # Show annotated frame
-    cv2.imshow("Sweetie Detection", rgb_frame)
+    # # Show annotated frame
+    # cv2.imshow("Sweetie Detection", rgb_frame)
+
+    print(f'FPS: {fps}')
 
     if cv2.waitKey(1) & 0xFF == 27:  # ESC
         break
