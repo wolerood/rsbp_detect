@@ -30,7 +30,7 @@ while True:
 
     results = model(frame, imgsz=320, verbose=False)
 
-    #annotated_frame = results[0].plot()
+    
 
     # FPS count
     frame_count += 1
@@ -41,6 +41,8 @@ while True:
     detect_num = (len(results[0].boxes))
 
     if video_play:
+        annotated_frame = results[0].plot()
+        
         cv2.putText(annotated_frame, f"FPS: {fps:.2f}",
                     (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
                     0.7, (0, 255, 255), 2)
