@@ -26,7 +26,7 @@ while True:
     # Convert RGBA → RGB
     frame = cv2.cvtColor(frame, cv2.COLOR_RGBA2RGB)
 
-    results = model(frame, imgsz=640, verbose=False)
+    results = model(frame, imgsz=280, verbose=False)
 
     annotated_frame = results[0].plot()
 
