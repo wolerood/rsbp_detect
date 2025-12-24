@@ -31,3 +31,4 @@ typing_extensions==4.15.0
 ultralytics==8.3.197
 ultralytics-thop==2.0.17
 urllib3==2.5.0
+flask
