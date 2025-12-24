@@ -59,7 +59,7 @@ while True:
 
     print(f'FPS: {"%.1f" % fps}, Обнаружено объектов: {detect_num}')
     
-    sweet_count = detect_num
+    state.sweet_count = detect_num
 
     if cv2.waitKey(1) & 0xFF == 27:  # ESC
         break

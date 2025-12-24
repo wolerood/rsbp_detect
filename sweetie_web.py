@@ -3,8 +3,6 @@ import time
 import state #обмен данными между потоками
 from flask import Flask, render_template_string
 
-# ===== Глобальная переменная =====
-sweet_count = 0
 
 # ===== Flask =====
 app = Flask(__name__)
@@ -37,7 +35,7 @@ HTML_PAGE = """
 
 @app.route("/")
 def index():
-    return render_template_string(HTML_PAGE, count=sweet_count)
+    return render_template_string(HTML_PAGE, count=state.sweet_count)
 
 def run_flask():
     app.run(host="0.0.0.0", port=5000, debug=False)
