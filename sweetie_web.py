@@ -58,5 +58,4 @@ if __name__ == "__main__":
     threading.Thread(target=run_flask, daemon=True).start()
 
     #detection_loop_test()
-
     #detection_loop()
