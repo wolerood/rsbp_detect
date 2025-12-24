@@ -1,5 +1,6 @@
 import threading
 import time
+import state #обмен данными между потоками
 from flask import Flask, render_template_string
 
 # ===== Глобальная переменная =====
@@ -41,14 +42,23 @@ def index():
 def run_flask():
     app.run(host="0.0.0.0", port=5000, debug=False)
 
-# ===== Имитация детекции =====
+# ===== Имитация  для тестов =====
+def detection_loop_test():
+    global sweet_count
+    while True:
+        # n
+        sweet_count += 1
+        time.sleep(1)
+
+# ===== поток обнавлемый раз в секунду =====
 def detection_loop():
     global sweet_count
     while True:
-        # здесь вместо этого будетдолжна быть переменная YOLO
-        sweet_count += 1
         time.sleep(1)
 
 if __name__ == "__main__":
     threading.Thread(target=run_flask, daemon=True).start()
-    detection_loop()
+
+    #detection_loop_test()
+
+    #detection_loop()

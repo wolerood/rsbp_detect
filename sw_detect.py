@@ -3,6 +3,8 @@ import time
 from ultralytics import YOLO
 from picamera2 import Picamera2
 from libcamera import Transform
+import state #обмен данными между потоками
+
 
 # Вывод видео
 video_play = True
@@ -56,6 +58,8 @@ while True:
         cv2.imshow("Sweetie Detection", rgb_frame)
 
     print(f'FPS: {"%.1f" % fps}, Обнаружено объектов: {detect_num}')
+    
+    sweet_count = detect_num
 
     if cv2.waitKey(1) & 0xFF == 27:  # ESC
         break
