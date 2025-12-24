@@ -12,7 +12,7 @@ show_conf  = False  # показыать confidence
 # Start PiCamera stream
 picam2 = Picamera2()
 # specifying the resolution and performing a 180 degree rotation
-picam2.configure(picam2.create_video_configuration(main={"size": (640, 480)}, transform=Transform(hflip=Fasle, vflip=False)))
+picam2.configure(picam2.create_video_configuration(main={"size": (640, 480)}, transform=Transform(hflip=False, vflip=False)))
 picam2.start()
 time.sleep(2)  # warm-up
 
