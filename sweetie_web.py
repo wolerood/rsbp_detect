@@ -29,6 +29,9 @@ HTML_PAGE = """
 <body>
     <h1>Количество конфет</h1>
     <div class="count">{{ count }}</div>
+        <h1>FPS:</h1>
+    <div class="count">{{ fps_value }}</div>
+    
 </body>
 </html>
 """
