@@ -38,7 +38,7 @@ class WebcamStream:
 model = YOLO("yolov8n.pt")
 
 # Start threaded webcam stream (0 = default webcam)
-vs = WebcamStream(src=0, size=(640, 480)).start()
+vs = WebcamStream(src=8, size=(640, 480)).start()
 time.sleep(2)  # warm-up
 
 frame_count = 0
