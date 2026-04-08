@@ -25,7 +25,7 @@ def detection_loop():
 
     # ===== загрузка модели =====
     #model = YOLO("yolov11n.pt")
-   model = YOLO("yolo11n.pt")
+    model = YOLO("yolo11n.pt")
 
     # ===== счётчики FPS =====
     frame_count = 0
