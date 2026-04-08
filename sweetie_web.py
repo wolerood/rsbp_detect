@@ -42,7 +42,8 @@ def index():
         HTML_PAGE,
         count=state.sweet_count,
         fps_value=f"{state.fps_value:.1f}"
-
+    )
+    
 def run_flask():
     app.run(host="0.0.0.0", port=5000, debug=False)
 
