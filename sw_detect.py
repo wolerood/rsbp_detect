@@ -24,7 +24,7 @@ def detection_loop():
     time.sleep(2)  # задержка перед стартом
 
     # ===== загрузка модели =====
-    model = YOLO("best.pt")
+    model = YOLO("yolo8n.pt")
 
     # ===== счётчики FPS =====
     frame_count = 0
