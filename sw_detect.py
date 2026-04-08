@@ -8,7 +8,7 @@ import state  # общий модуль состояния
 
 def detection_loop():
     # ===== настройки отображения =====
-    video_play = True
+    video_play = False
     show_label = False
     show_conf = False
 
