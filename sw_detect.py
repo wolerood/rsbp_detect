@@ -8,7 +8,7 @@ import state  # общий модуль состояния
 
 def detection_loop():
     # ===== настройки отображения =====
-    video_play = False
+    video_play = True
     show_label = False
     show_conf = False
 
@@ -40,7 +40,7 @@ def detection_loop():
             frame = cv2.cvtColor(frame, cv2.COLOR_RGBA2RGB)
 
             # инференс
-            results = model(frame, imgsz=320, verbose=False)
+            results = model(frame, imgsz=640, verbose=False)  #320
 
             # подсчёт FPS
             frame_count += 1
