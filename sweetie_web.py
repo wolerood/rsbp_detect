@@ -29,7 +29,7 @@ HTML_PAGE = """
 <body>
     <h1>Количество конфет</h1>
     <div class="count">{{ count }}</div>
-        <h1>FPS:</h1>
+    <h1>FPS:</h1>
     <div class="count">{{ fps_value }}</div>
     
 </body>
@@ -38,7 +38,10 @@ HTML_PAGE = """
 
 @app.route("/")
 def index():
-    return render_template_string(HTML_PAGE, count=state.sweet_count)
+    return render_template_string(
+        HTML_PAGE,
+        count=state.sweet_count,
+        fps_value=f"{state.fps_value:.1f}"
 
 def run_flask():
     app.run(host="0.0.0.0", port=5000, debug=False)
