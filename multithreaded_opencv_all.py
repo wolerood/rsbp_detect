@@ -35,7 +35,7 @@ class WebcamStream:
 
 
 # Load YOLOv8 nano model (fastest for CPU)
-model = YOLO("yolov12n.pt")
+model = YOLO("yolov11n.pt")
 #model = YOLO("best.pt")
 
 # Start threaded webcam stream (0 = default webcam)
