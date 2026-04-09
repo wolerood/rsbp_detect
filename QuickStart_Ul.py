@@ -9,6 +9,7 @@ import time
 # Initialize the Picamera2
 picam2 = Picamera2()
 #picam2.preview_configuration.main.size = (1280, 720)
+picam2.preview_configuration.main.size = (640, 480)
 picam2.preview_configuration.main.format = "RGB888"
 picam2.preview_configuration.align()
 picam2.configure("preview")
@@ -28,7 +29,7 @@ while True:
     frame = cv2.flip(frame, 0)
 
     # Run YOLO26 inference on the frame
-    results = model(frame, imgsz=640)
+    results = model(frame)
 
     # Visualize the results on the frame
     annotated_frame = results[0].plot()
