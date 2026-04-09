@@ -28,7 +28,7 @@ while True:
     frame = cv2.flip(frame, 0)
 
     # Run YOLO26 inference on the frame
-    results = model(frame)
+    results = model(frame, imgsz=640)
 
     # Visualize the results on the frame
     annotated_frame = results[0].plot()
