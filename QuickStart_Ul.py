@@ -8,7 +8,7 @@ from ultralytics import YOLO
 
 # Initialize the Picamera2
 picam2 = Picamera2()
-picam2.preview_configuration.main.size = (1280, 720)
+#picam2.preview_configuration.main.size = (1280, 720)
 picam2.preview_configuration.main.format = "RGB888"
 picam2.preview_configuration.align()
 picam2.configure("preview")
@@ -20,6 +20,9 @@ model = YOLO("yolo26n.pt")
 while True:
     # Capture frame-by-frame
     frame = picam2.capture_array()
+
+    #vert vlip
+    frame = cv2.flip(frame, 0)
 
     # Run YOLO26 inference on the frame
     results = model(frame)
