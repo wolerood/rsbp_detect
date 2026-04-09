@@ -3,8 +3,8 @@
 
 import cv2
 from picamera2 import Picamera2
-
 from ultralytics import YOLO
+import time
 
 # Initialize the Picamera2
 picam2 = Picamera2()
@@ -13,6 +13,9 @@ picam2.preview_configuration.main.format = "RGB888"
 picam2.preview_configuration.align()
 picam2.configure("preview")
 picam2.start()
+
+frame_count = 0
+start_time = time.time()
 
 # Load the YOLO26 model
 model = YOLO("yolo26n.pt")
@@ -29,6 +32,15 @@ while True:
 
     # Visualize the results on the frame
     annotated_frame = results[0].plot()
+
+    # FPS count
+    frame_count += 1
+    elapsed_time = time.time() - start_time
+    fps = frame_count / elapsed_time if elapsed_time > 0 else 0
+
+    cv2.putText(annotated_frame, f"FPS: {fps:.2f}",
+                (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
+                0.7, (0, 255, 255), 2)
 
     # Display the resulting frame
     cv2.imshow("Camera", annotated_frame)
