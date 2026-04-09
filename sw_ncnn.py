@@ -38,8 +38,8 @@ while True:
     elapsed_time = time.time() - start_time
     fps = frame_count / elapsed_time if elapsed_time > 0 else 0
 
-     print(f"\rFPS: {fps:.2f}", end="")
-     
+    print(f"\rFPS: {fps:.2f}", end="")
+
 '''
     cv2.putText(annotated_frame, f"FPS: {fps:.2f}",
                 (10, 30), cv2.FONT_HERSHEY_SIMPLEX,
