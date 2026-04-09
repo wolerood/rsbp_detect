@@ -8,7 +8,7 @@ import time
 
 
 model = YOLO("yolo26n_openvino_model")
-img = cv2.imread("test.jpg")
+img = cv2.imread("test_frame.jpg")
 
 t0 = time.time()
 results = model(img, imgsz=320, verbose=False)
