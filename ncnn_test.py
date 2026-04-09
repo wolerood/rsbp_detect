@@ -23,7 +23,7 @@ while True:
 
     frame = cv2.flip(frame, 0)
 
-    results = model(frame, imgsz=320, verbose=False)
+    #results = model(frame, imgsz=320, verbose=False)
 
     frame_count += 1
     elapsed = time.time() - start_time
