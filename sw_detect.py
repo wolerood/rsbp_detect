@@ -40,7 +40,7 @@ def detection_loop():
             frame = cv2.cvtColor(frame, cv2.COLOR_RGBA2RGB)
 
             # инференс
-            results = model(frame, imgsz=320, verbose=False)  #320
+            results = model(frame, imgsz=640, verbose=False)  #320
 
             # подсчёт FPS
             frame_count += 1
