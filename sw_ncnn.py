@@ -16,10 +16,10 @@ frame_count = 0
 start_time = time.time()
 
 # Load a YOLO26n PyTorch model
-model = YOLO("yolo26n.pt")
+#model = YOLO("yolo26n.pt")
 
 # Export the model to NCNN format
-model.export(format="ncnn")  # creates 'yolo26n_ncnn_model'
+#model.export(format="ncnn")  # creates 'yolo26n_ncnn_model'
 
 # Load the exported NCNN model
 ncnn_model = YOLO("yolo26n_ncnn_model")
