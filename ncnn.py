@@ -15,10 +15,14 @@ if not cap.isOpened():
 frame_count = 0
 start_time = time.time()
 
+# Load a YOLO26n PyTorch model
 model = YOLO("yolo26n.pt")
 
 # Export the model to NCNN format
 model.export(format="ncnn")  # creates 'yolo26n_ncnn_model'
+
+# Load the exported NCNN model
+ncnn_model = YOLO("yolo26n_ncnn_model")
 
 while True:
     ret, frame = cap.read()
@@ -26,7 +30,7 @@ while True:
         continue
 
     frame = cv2.flip(frame, 0)  # переворот
-    results = model(frame, imgsz=320, verbose=False) #320
+    results = ncnn_model(frame, imgsz=320, verbose=False) #320
     annotated_frame = results[0].plot()
 
     #FPS count
