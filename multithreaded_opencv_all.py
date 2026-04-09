@@ -35,7 +35,7 @@ class WebcamStream:
 
 
 # Load YOLOv8 nano model (fastest for CPU)
-model = YOLO("yolo11n.pt")
+model = YOLO("yolo26n.pt")
 #model = YOLO("best.pt")
 
 # Start threaded webcam stream (0 = default webcam)
@@ -64,7 +64,7 @@ while True:
                 0.7, (0, 255, 255), 2)
 
     # Show annotated frame
-    cv2.imshow("YOLOv8 Detection", annotated_frame)
+    cv2.imshow("YOLOv26 Detection", annotated_frame)
 
     if cv2.waitKey(1) & 0xFF == 27:  # ESC to exit
         break
