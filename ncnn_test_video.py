@@ -1,40 +1,18 @@
 import cv2
 import time
-import numpy as np
 from ultralytics import YOLO
 
-cap = cv2.VideoCapture("/dev/video8", cv2.CAP_V4L2)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-cap.set(cv2.CAP_PROP_FPS, 30)
-cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
-
-if not cap.isOpened():
-    raise RuntimeError("Не удалось открыть /dev/video8")
+img = cv2.imread("test_frame.jpg")
+if img is None:
+    raise RuntimeError("Не удалось открыть test_frame.jpg")
 
 model = YOLO("yolo26n_ncnn_model", task="detect")
 
-frame_count = 0
-start_time = time.time()
+count = 0
+start = time.time()
 
 while True:
-    ret, frame = cap.read()
-    if not ret:
-        continue
-
-    # сначала делаем независимую копию
-    safe_frame = frame.copy()
-
-    # если нужен переворот
-    safe_frame = cv2.flip(safe_frame, 0)
-
-    # дополнительно делаем гарантированно contiguous
-    safe_frame = np.ascontiguousarray(safe_frame)
-
-    results = model(safe_frame, imgsz=320, verbose=False)
-
-    frame_count += 1
-    elapsed = time.time() - start_time
-    fps = frame_count / elapsed if elapsed > 0 else 0
-
-    print(f"\rFPS: {fps:.2f}", end="")
+    results = model(img, imgsz=320, verbose=False)
+    count += 1
+    fps = count / (time.time() - start)
+    print(f"\rFPS: {fps:.2f}", end="", flush=True)
