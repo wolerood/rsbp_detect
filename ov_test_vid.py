@@ -21,7 +21,7 @@ while True:
     if not ret:
         continue
 
-    results = model(frame, imgsz=320, verbose=False)
+    results = model(frame, imgsz=320, verbose=False) # 320 - 21 fps
     annotated = results[0].plot()
 
     frame_count += 1
