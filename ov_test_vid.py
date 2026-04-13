@@ -11,7 +11,8 @@ cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
 if not cap.isOpened():
     raise RuntimeError("Не удалось открыть камеру")
 
-model = YOLO("yolo26n_openvino_model")
+#model = YOLO("yolo26n_openvino_model")
+model = YOLO("yolo26n_best_openvino_model")
 
 frame_count = 0
 start_time = time.time()
