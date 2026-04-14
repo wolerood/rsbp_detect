@@ -12,6 +12,9 @@ cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 cap.set(cv2.CAP_PROP_FPS, 30)
 cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
 
+# ===== настройки отображения =====
+
+
 if not cap.isOpened():
     raise RuntimeError("Не удалось открыть камеру")
 
@@ -43,6 +46,8 @@ while True:
     if not ret:
         continue
 
+    frame = cv2.flip(frame, 0)  # переворот
+    
     results = model(frame, imgsz=320, verbose=False)  # 320
     result = results[0]
     annotated = frame.copy()
