@@ -34,7 +34,7 @@ tracker = CandyTracker(
 
 
 # ===== Runtime =====
-CONF_THRESHOLD = 0.45
+CONF_THRESHOLD = 0.6  # default 0.45
 frame_count = 0
 start_time = time.time()
 
