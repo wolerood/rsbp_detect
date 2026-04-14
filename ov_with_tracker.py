@@ -28,7 +28,7 @@ tracker = CandyTracker(
     line_x=COUNT_LINE_X,
     max_distance=50,   # допустимый сдвиг центра между кадрами
     min_hits=3,        # минимум подтверждений до учета
-    max_missed=5,      # сколько кадров держать потерянный трек
+    max_missed=15,      # сколько кадров держать потерянный трек
     direction="left_to_right",  # направление движения
 )
 
