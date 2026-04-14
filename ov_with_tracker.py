@@ -43,7 +43,7 @@ while True:
     if not ret:
         continue
 
-    results = model(frame, imgsz=256, verbose=False)  # 320
+    results = model(frame, imgsz=640, verbose=False)  # 320
     result = results[0]
     annotated = frame.copy()
 
