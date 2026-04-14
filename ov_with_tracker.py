@@ -26,9 +26,9 @@ COUNT_LINE_X = int(FRAME_WIDTH * 0.60)  # вертикальная линия с
 
 tracker = CandyTracker(
     line_x=COUNT_LINE_X,
-    max_distance=50,   # допустимый сдвиг центра между кадрами
-    min_hits=3,        # минимум подтверждений до учета
-    max_missed=15,      # сколько кадров держать потерянный трек
+    max_distance=50,   # допустимый сдвиг центра между кадрами  default 50
+    min_hits=10,        # минимум подтверждений до учета        default 3
+    max_missed=15,      # сколько кадров держать потерянный трек  default 5
     direction="left_to_right",  # направление движения
 )
 
